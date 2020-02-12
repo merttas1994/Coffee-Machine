@@ -14,7 +14,7 @@ public class CoffeeMachine {
 
 	static Scanner input=new Scanner(System.in);
 
-	private double coffee_powder, milk, water, prc_milk_coffee, prc_filter_coffee, prc_filter_milk_coffee;
+	private double coffee_powder, milk, water, prc_milk_coffee, prc_filter_coffee, prc_filter_milk_coffee, prc_total=0.0;
 	private int count_coffee = 0;
 
 	public CoffeeMachine(){ // Initialization values to zero
@@ -54,17 +54,27 @@ public class CoffeeMachine {
 				+        "\n| 3: Filter Coffee with Milk |" 
 				+      "\n\n| 0: Discard                 |");
 		System.out.println(" --------------------------- \n");
+		System.out.print("Please select your coffee: ");
 
 		char t = input.next().charAt(0);
 		switch(t){
 		case '1':
 			this.filterCoffee();     //Call to filterCoffee Method
+			this.calculatePrices();
+			System.out.println("\nYour price is "+this.prc_filter_coffee+"₺");
+			prc_total=prc_total+this.prc_filter_coffee;
 			break;
 		case '2':
 			this.milkCoffee();      //Call to milkCoffee Method
+			this.calculatePrices();
+			System.out.println("\nYour price is "+this.prc_milk_coffee+"₺");
+			prc_total=prc_total+this.prc_milk_coffee;
 			break;
 		case '3':
 			this.milkCoffee();      //Call to milkCoffee Method
+			this.calculatePrices();
+			System.out.println("\nYour price is "+this.prc_filter_milk_coffee+"₺");
+			prc_total=prc_total+this.prc_filter_milk_coffee;
 			break;	
 		case '0':
 			break;
@@ -80,7 +90,7 @@ public class CoffeeMachine {
 			this.water = this.water - 0.2;
 			System.out.println("\nYour Filter Coffee is Ready.");
 			this.count_coffee++;
-		
+
 		}
 		else{
 			System.out.println("\nAvailable Coffee Power(Gr) "+String.format("%.1f",this.coffee_powder));
@@ -100,7 +110,7 @@ public class CoffeeMachine {
 			this.water = this.water - 0.2;
 			System.out.println("\nYour Milk Coffee is Ready.");
 			this.count_coffee++;
-			
+
 
 		}
 		else{
@@ -112,24 +122,17 @@ public class CoffeeMachine {
 	}
 
 	private void coffeePrices(){
-		this.prc_milk_coffee=10;
-		this.prc_filter_coffee=15;
-		this.prc_filter_milk_coffee=20;
 		System.out.println("------------- Prices ----------");
 		System.out.println("1.Coffee with milk        : 10₺");
 		System.out.println("2.Filter Coffee           : 15₺");
 		System.out.println("3.Filter Coffee with milk : 20₺");
-		
 	}
 
 	private void calculatePrices(){
-		this.makeCoffee();
-		this.coffeePrices();
-		
-		
-
+		this.prc_milk_coffee=10;
+		this.prc_filter_coffee=15;
+		this.prc_filter_milk_coffee=20;
 	}
-
 
 	public void startMachine(){    // public start to access all private method of this class
 		System.out.println(" ----------------------------------------------------------------");
@@ -148,7 +151,7 @@ public class CoffeeMachine {
 					+ "\n -------------------------------- \n|6:        Price List            |"
 					+ "\n -------------------------------- \n|7:        Exit                  |");
 			System.out.println(" -------------------------------- \n\n");
-
+			System.out.print("Please make your choice: ");
 			char c = CoffeeMachine.input.next().charAt(0);
 			switch(c){
 			case '1': 
@@ -166,12 +169,12 @@ public class CoffeeMachine {
 				break;
 			case '4':
 				this.makeCoffee();
-				this.coffeePrices();
-				
 				this.calculatePrices();
+				this.coffeePrices();
 				break;
 			case '5':
 				System.out.println("\nWe Have Made "+this.count_coffee+" Coffee(s).");
+				System.out.println("Your total price is "+prc_total);
 				break;
 			case '6':
 				this.coffeePrices();
