@@ -2,7 +2,7 @@
  in JAVA Language
  
 # OUTPUT: 
-# Main Menu::
+# Main Menu & Make Coffee Menu
 
 Do you want to run the Machine Y or N ?
 y
@@ -31,6 +31,18 @@ Available Water(Lt) 0.0
  -------------------------------- 
 |7:        Exit                  |
  -------------------------------- 
+ 
+Please make your choice: 4
 
+ ------------------------- 
+|      Select Type:          |
+ ------------------------- 
+| 1: Filter Coffee           |
+| 2: Coffee with Milk        |
+| 3: Filter Coffee with Milk |
 
-Please make your choice: 
+| 0: Discard                 |
+ --------------------------- 
+
+Please select your coffee: 
+
