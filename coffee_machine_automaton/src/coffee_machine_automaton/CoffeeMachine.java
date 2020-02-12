@@ -103,6 +103,20 @@ static Scanner input=new Scanner(System.in);
         }
     }
 
+    private void coffeePrices(){
+    	int milk_coffee=10, filter_coffee=15, filter_milk_coffee=20;
+    	System.out.println("------------- Prices ----------");
+    	System.out.println("1.Coffee with milk        : 10₺");
+    	System.out.println("2.Filter Coffee           : 15₺");
+    	System.out.println("3.Filter Coffee with milk : 20₺");
+    	
+    }
+    private void calculatePrices(){
+    	
+    }
+    
+    
+    
 	/**
 	 * @param args
 	 */
