@@ -16,6 +16,7 @@ public class CoffeeMachine {
 
 	private double coffee_powder, milk, water, prc_milk_coffee, prc_filter_coffee, prc_filter_milk_coffee, prc_total=0.0;
 	private int count_coffee = 0;
+	//private String coffee_size1, coffee_size2, coffee_size3;
 
 	public CoffeeMachine(){ // Initialization values to zero
 		this.coffee_powder=0;
@@ -59,6 +60,49 @@ public class CoffeeMachine {
 		char t = input.next().charAt(0);
 		switch(t){
 		case '1':
+			//this.coffeeSizes();
+			this.filterCoffee();     //Call to filterCoffee Method
+			this.calculatePrices();
+			System.out.println("\nYour price is "+this.prc_filter_coffee+"₺.");
+			prc_total=prc_total+this.prc_filter_coffee;
+			break;
+		case '2':
+			//this.coffeeSizes();
+			this.milkCoffee();      //Call to milkCoffee Method
+			this.calculatePrices();
+			System.out.println("\nYour price is "+this.prc_milk_coffee+"₺.");
+			prc_total=prc_total+this.prc_milk_coffee;
+			break;
+		case '3':
+			//this.coffeeSizes();
+			this.milkCoffee();      //Call to milkCoffee Method
+			this.calculatePrices();
+			System.out.println("\nYour price is "+this.prc_filter_milk_coffee+"₺.");
+			prc_total=prc_total+this.prc_filter_milk_coffee;
+			break;	
+		case '0':
+			break;
+		}
+	}
+
+	/*
+	private void coffeeSizes() {
+		this.coffee_size1="Tall";
+		this.coffee_size2 ="Grande";
+		this.coffee_size3="Venti";
+		System.out.println("\n ------------");
+		System.out.println("| Select Size: |"
+				+          "\n ------------ "
+				+        "\n| 1: Tall      |"
+				+        "\n| 2: Grande    |"
+				+        "\n| 3: Venti     |" 
+				+      "\n\n| 0: Discard   |");
+		System.out.println(" -------------- \n");
+		System.out.print("Select the coffee size: ");
+
+		char t = input.next().charAt(0);
+		switch(t){
+		case '1':
 			this.filterCoffee();     //Call to filterCoffee Method
 			this.calculatePrices();
 			System.out.println("\nYour price is "+this.prc_filter_coffee+"₺");
@@ -78,13 +122,14 @@ public class CoffeeMachine {
 			break;	
 		case '0':
 			break;
-		}
+			}
 	}
+	 */
 
 	private void filterCoffee(){
 		if(this.coffee_powder >= 10 && this.water >= 0.2){
 			System.out.println("\nMaking Black Coffee...");
-			System.out.println("\nTaking 10gm of Coffee Powder.");
+			System.out.println("\nTaking 10gr of Coffee Powder.");
 			this.coffee_powder = this.coffee_powder - 10;
 			System.out.println("Taking 0.2 liter of Water.");
 			this.water = this.water - 0.2;
@@ -102,7 +147,7 @@ public class CoffeeMachine {
 	private void milkCoffee(){
 		if(this.coffee_powder >= 10 && this.milk >= 0.4 && this.water >= 0.2){
 			System.out.println("\nMaking Milk Coffee...");
-			System.out.println("\nTaking 10gm of Coffee Powder.");
+			System.out.println("\nTaking 10gr of Coffee Powder.");
 			this.coffee_powder = this.coffee_powder - 10;
 			System.out.println("Taking 0.4 Liter of Milk.");
 			this.milk = this.milk - 0.4;
@@ -147,7 +192,7 @@ public class CoffeeMachine {
 			System.out.println("|1:     Status of Ingredient     |\n -------------------------------- \n|2:"
 					+ "      Fill Ingredient         |\n -------------------------------- \n|3:       Clean Machine          |"
 					+ "\n -------------------------------- \n|4:        Make Coffee           |"
-					+ "\n -------------------------------- \n|5: How Many Coffee We Have Made?|"
+					+ "\n -------------------------------- \n|5:How Many Coffees We Have Made?|"
 					+ "\n -------------------------------- \n|6:        Price List            |"
 					+ "\n -------------------------------- \n|7:        Exit                  |");
 			System.out.println(" -------------------------------- \n\n");
@@ -174,7 +219,7 @@ public class CoffeeMachine {
 				break;
 			case '5':
 				System.out.println("\nWe Have Made "+this.count_coffee+" Coffee(s).");
-				System.out.println("Your total price is "+prc_total);
+				System.out.println("Your total price is "+prc_total+"₺.");
 				break;
 			case '6':
 				this.coffeePrices();
@@ -185,7 +230,6 @@ public class CoffeeMachine {
 				break;
 			}   
 		} 
-
 	}
 
 	public static class MakeCoffee{
