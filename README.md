@@ -25,7 +25,7 @@ Available Water(Lt) 0.0
  -------------------------------- 
 |4:        Make Coffee           |
  -------------------------------- 
-|5: How Many Coffee We Have Made?|
+|5:How Many Coffees We Have Made?|
  -------------------------------- 
 |6:        Price List            |
  -------------------------------- 
